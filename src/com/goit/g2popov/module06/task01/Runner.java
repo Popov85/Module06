@@ -4,16 +4,12 @@ package com.goit.g2popov.module06.task01;
  * Created by Андрей on 06.06.2016.
  */
 public class Runner {
-        public static void main (String[] args) {
+        public static void main (String[] args) throws NotANumberException {
                 Triangle myTriangle = new Triangle();
                 double[] sides={2.0d, 4.0d, 41.47d};
                 double x;
-                try {
-                        x = myTriangle.calculateArea(sides);
-                        System.out.println("Area of a triangle = "+x);
-                } catch (NotANumberException e) {
-                        e.printStackTrace();
-                }
+                x = myTriangle.calculateArea(sides);
+                System.out.println("Area of a triangle = "+x);
                 Rectangle myRectangle = new Rectangle();
                 double[] sides2={2.0d, 4.0d};
                 double x2 = myRectangle.calculateArea(sides2);
