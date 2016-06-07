@@ -8,7 +8,7 @@ import java.util.HashMap;
  * Created by Андрей on 06.06.2016.
  */
 public class Runner {
-        public static void main (String[] args) {
+        public static void main (String[] args) throws MoreThanIsLeftException {
                 Instrument aPiano = new Piano();
                 Instrument aTrumpet = new Trumpet();
                 Instrument aGuitar = new Guitar();
@@ -17,7 +17,7 @@ public class Runner {
                 mapInstance.put(aTrumpet, 7);
                 mapInstance.put(aGuitar, 16);
                 StoreHouse.setStock(mapInstance);
-                //System.out.println("Guitars = "+StoreHouse.calculateInstruments(aGuitar));
+                System.out.println("Initial stock:");
                 StoreHouse.printStockState();
                 Order myOrder = new Order();
                 System.out.println("First order number = " + myOrder.getId());
@@ -28,12 +28,10 @@ public class Runner {
                 StoreHouse.printStockState();
                 Order myOrder2 = new Order();
                 System.out.println("Second order number = " + myOrder2.getId());
-                myOrder2.addItem(1, aPiano);
+                myOrder2.addItem(2, aPiano);
                 myOrder2.addItem(1, aTrumpet);
                 myOrder2.prepareInstruments();
                 System.out.println("In stock left:");
                 StoreHouse.printStockState();
         }
-
-
 }

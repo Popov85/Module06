@@ -1,5 +1,6 @@
 package com.goit.g2popov.module06.task02;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
  * Created by Андрей on 29.05.2016.
  */
 public class Order {
-        private static int currentID=0;
+        private static int currentID = 0;
         private int id;
         private Calendar date;
         private boolean isFulfilled;
@@ -77,14 +78,20 @@ public class Order {
                 }
         }
 
-        public void addItem(int number, Instrument instrument){
-                OrderItem pieceOfOrder = new OrderItem();
-                pieceOfOrder.setNumberOfItems(number);
-                pieceOfOrder.setInstrument(instrument);
+        public void addItem(int wantedNumber, Instrument instrument) throws MoreThanIsLeftException {
+                int realNumberInStock = getInstrumentNumberInStock(instrument);
                 try {
+                        if (wantedNumber > realNumberInStock) {
+                                throw new MoreThanIsLeftException(wantedNumber);
+                        }
+                        OrderItem pieceOfOrder = new OrderItem(wantedNumber, instrument);
                         this.items.add(pieceOfOrder);
-                } catch (Exception e) {
-                        e.printStackTrace();
+                } catch (MoreThanIsLeftException e) {
+                        System.out.println("User asked more than it is left in stock...");
                 }
+        }
+
+        private int getInstrumentNumberInStock(Instrument instrument) {
+                return StoreHouse.calculateInstruments(instrument);
         }
 }

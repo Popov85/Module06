@@ -7,6 +7,11 @@ public class OrderItem {
         private int numberOfItems;
         private Instrument instrument;
 
+        public OrderItem(int number, Instrument instrument) {
+                this.numberOfItems = number;
+                this.instrument = instrument;
+        }
+
         public Instrument getInstrument() {
                 return instrument;
         }
