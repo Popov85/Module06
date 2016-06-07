@@ -15,12 +15,11 @@ public class Triangle implements Shape {
                         if (Double.isNaN(area)) {
                                 throw new NotANumberException();
                         }
-                        return area;
                 } catch (NotANumberException e) {
                         System.out.println("Impossible triangle!");
-                        e.printStackTrace();
-                        return 0;
+                        area = 0;
                 }
+                return area;
         }
 
         private double getHalfPerimeter(double[] sides) {
