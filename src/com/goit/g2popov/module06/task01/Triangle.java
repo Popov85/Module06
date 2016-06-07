@@ -4,7 +4,7 @@ package com.goit.g2popov.module06.task01;
  * Created by Андрей on 29.05.2016.
  */
 public class Triangle implements Shape {
-        public double calculateArea(double[] sides) {
+        public double calculateArea(double[] sides) throws NotANumberException {
                 double halfPerimeter = getHalfPerimeter(sides);
                 double sideA = sides[0];
                 double sideB = sides[1];
@@ -12,10 +12,15 @@ public class Triangle implements Shape {
                 double area = 0;
                 try {
                         area = Math.sqrt(halfPerimeter*(halfPerimeter-sideA)*(halfPerimeter-sideB)*(halfPerimeter-sideC));
-                } catch (Exception e) {
+                        if (Double.isNaN(area)) {
+                                throw new NotANumberException();
+                        }
+                        return area;
+                } catch (NotANumberException e) {
                         System.out.println("Impossible triangle!");
+                        e.printStackTrace();
+                        return 0;
                 }
-                return area;
         }
 
         private double getHalfPerimeter(double[] sides) {
