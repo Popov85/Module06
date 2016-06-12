@@ -1,22 +1,21 @@
 package com.goit.g2popov.module06.task01;
 
 /**
- * Created by Андрей on 06.06.2016.
+ * Class {@code Runner} entry point - emulates how to use Triangle class and calculate area of triangles
  */
 public class Runner {
         public static void main (String[] args) throws NotANumberException {
+                // We will create an instance of Triangle class and
+                // sequentially calculate areas of unreal and real triangle
+                // In the first example we shall face exception!
                 Triangle myTriangle = new Triangle();
-                double[] sides={2.0d, 4.0d, 41.47d};
-                double x;
+                double[] sides = {2.0d, 4.0d, 41.47d};
+                double x = myTriangle.calculateArea(sides);
+                System.out.println("Area of a triangle (with an exception) = " + x);
+
+                // Let's change the third side to get a correct area
+                sides[2] = 4.47d;
                 x = myTriangle.calculateArea(sides);
-                System.out.println("Area of a triangle = "+x);
-                Rectangle myRectangle = new Rectangle();
-                double[] sides2={2.0d, 4.0d};
-                double x2 = myRectangle.calculateArea(sides2);
-                System.out.println("Area of a rectangle = "+x2);
-                Circle myCircle = new Circle();
-                double[] sides3={2.0d};
-                double x3 = myCircle.calculateArea(sides3);
-                System.out.println("Area of a circle = "+x3);
+                System.out.println("Area of a triangle = " + x);
         }
 }

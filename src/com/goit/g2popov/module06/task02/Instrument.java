@@ -1,10 +1,16 @@
 package com.goit.g2popov.module06.task02;
+
 /**
- * Created by Андрей on 29.05.2016.
+ * Class {@code Instrument} specifies guitars as a commodity in the online shop
+ * @author  Andrii Popov
  */
 
 public abstract class Instrument {
+
+        // Wholesale price of an instrument
         private double wholesalePrice;
+
+        // Retail price of an instrument
         private double retailPrice;
 
         public double getRetailPrice() {

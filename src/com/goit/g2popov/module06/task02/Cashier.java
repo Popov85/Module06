@@ -1,6 +1,8 @@
 package com.goit.g2popov.module06.task02;
+
 /**
- * Created by Андрей on 29.05.2016.
+ * Class {@code Cashier} keeps info about a person who process orders
+ * @author  Andrii Popov
  */
 
 public class Cashier {

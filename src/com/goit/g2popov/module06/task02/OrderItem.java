@@ -1,10 +1,15 @@
 package com.goit.g2popov.module06.task02;
 
 /**
- * Created by Андрей on 29.05.2016.
+ * Class {@code OrderItem} keeps info about a part of orders
+ * @author  Andrii Popov
  */
+
 public class OrderItem {
+
+        // Number if items a customer asked
         private int numberOfItems;
+        // Item that a customer asked
         private Instrument instrument;
 
         public OrderItem(int number, Instrument instrument) {

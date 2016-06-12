@@ -1,9 +1,12 @@
 package com.goit.g2popov.module06.task02;
+
 /**
- * Created by Андрей on 29.05.2016.
+ * Class {@code Supplier} keeps info about companies that provide instruments
+ * @author  Andrii Popov
  */
 
 public class Supplier {
+
         private String companyName;
 
         public String getCompanyName() {

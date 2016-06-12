@@ -1,20 +1,27 @@
 package com.goit.g2popov.module06.task02;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 /**
- * Created by Андрей on 29.05.2016.
+ * Class {@code Order} keeps info about orders made in the online shop
+ * @author  Andrii Popov
  */
+
 public class Order {
+
+        // ID counter
         private static int currentID = 0;
+        // ID of an order
         private int id;
+        // Date/Time when an order was created
         private Calendar date;
+        // Specifies whether an order was fulfilled
         private boolean isFulfilled;
         private Cashier cashier;
         private Client client;
+        // Keeps info about instruments and their numbers in an order
         private List<OrderItem> items;
 
         public Order() {
@@ -71,6 +78,10 @@ public class Order {
                 this.items = items;
         }
 
+        /**
+         * Ships an order to the customer
+         * Decreases numbers of all instruments in stock according to the order
+         */
         public void prepareInstruments() {
                 for (int i = 0; i < items.size(); i++) {
                         OrderItem pieceOfOrder = items.get(i);
@@ -78,9 +89,19 @@ public class Order {
                 }
         }
 
+        /**
+         * Adds an instrument to the basket
+         * If a customer wants more items than is left in stock, we prevent him from
+         * placing the item in the basket
+         * @param wantedNumber
+         * @param instrument
+         * @throws MoreThanIsLeftException
+         */
         public void addItem(int wantedNumber, Instrument instrument) throws MoreThanIsLeftException {
                 int realNumberInStock = getInstrumentNumberInStock(instrument);
                 try {
+                        // If we face a situation when a customer wants too many instruments of a given type
+                        // we prevent him from creating OrderItem instance
                         if (wantedNumber > realNumberInStock) {
                                 throw new MoreThanIsLeftException(wantedNumber);
                         }
@@ -91,6 +112,11 @@ public class Order {
                 }
         }
 
+        /**
+         * Gets the number of a given instrument in stock
+         * @param instrument
+         * @return
+         */
         private int getInstrumentNumberInStock(Instrument instrument) {
                 return StoreHouse.calculateInstruments(instrument);
         }

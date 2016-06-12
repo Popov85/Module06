@@ -1,7 +1,8 @@
 package com.goit.g2popov.module06.task01;
 
 /**
- * Created by Андрей on 30.05.2016.
+ * Class {@code Circle} specifies a circle
+ * @author  Andrii Popov
  */
 public class Circle implements Shape {
         public double calculateArea(double[] sides) {
