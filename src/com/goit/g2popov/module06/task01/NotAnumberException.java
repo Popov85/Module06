@@ -7,5 +7,4 @@ package com.goit.g2popov.module06.task01;
  */
 
 public class NotANumberException extends Exception {
-
 }
