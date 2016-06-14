@@ -26,7 +26,7 @@ public class Triangle implements Shape {
                         }
                         area = tryArea;
                 } catch (NotANumberException e) {
-                        System.out.println("Impossible triangle!");
+                        System.out.println("Wrong sides! We failed to calculate an area");
                 }
                 return area;
         }
